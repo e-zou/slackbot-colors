@@ -87,7 +87,7 @@ app.post('/post', (req, res) => {
             },
             {
                 color: "#5F8D89",
-                pretext: "Dark Green: #5F8D89",
+                text: "Dark Green: #5F8D89",
             },
             {
                 color: "#518991",
