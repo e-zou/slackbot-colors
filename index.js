@@ -18,39 +18,39 @@ app.get('/get', (req, res) => {
         attachments: [
         {
             color: "#EDC560",
-            pretext: "Light Yellow",
+            pretext: "Light Yellow: #EDC560",
         },
         {
             color: "#97C6BF",
-            pretext: "Leaf Green",
+            pretext: "Leaf Green: #97C6BF",
         },
         {
             color: "#F4C137",
-            pretext: "Dark Yellow",
+            pretext: "Dark Yellow: #F4C137",
         },
         {
             color: "#FFB208",
-            pretext: "Light Orange",
+            pretext: "Light Orange: #FFB208",
         },
         {
             color: "#E98035",
-            pretext: "Blood Orange",
+            pretext: "Blood Orange: #E98035",
         },
         {
             color: "#5F8D89",
-            pretext: "Dark Green",
+            pretext: "Dark Green: #5F8D89",
         },
         {
             color: "#518991",
-            pretext: "Bluish Green",
+            pretext: "Bluish Green: #518991",
         },
         {
             color: "#264044",
-            pretext: "Super Dark Green",
+            pretext: "Super Dark Green: #264044",
         },
         {
             color: "#F0F2F6",
-            pretext: "Off-White",
+            pretext: "Off-White: #F0F2F6",
         }
         ]
     }
@@ -69,38 +69,7 @@ app.post('/post', (req, res) => {
             color: "#EDC560",
             pretext: "Light Yellow",
         },
-        {
-            color: "#97C6BF",
-            pretext: "Leaf Green",
-        },
-        {
-            color: "#F4C137",
-            pretext: "Dark Yellow",
-        },
-        {
-            color: "#FFB208",
-            pretext: "Light Orange",
-        },
-        {
-            color: "#E98035",
-            pretext: "Blood Orange",
-        },
-        {
-            color: "#5F8D89",
-            pretext: "Dark Green",
-        },
-        {
-            color: "#518991",
-            pretext: "Bluish Green",
-        },
-        {
-            color: "#264044",
-            pretext: "Super Dark Green",
-        },
-        {
-            color: "#F0F2F6",
-            pretext: "Off-White",
-        }
+
         ]
     }
 
