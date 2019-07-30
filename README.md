@@ -6,9 +6,9 @@ provides the brand colors for X-mode
 - npm
 
 ## Commands
-'''git clone https://github.com/e-zou/slackbot-colors.git'''
-'''cd slackbot-colors'''
-'''npm install'''
+```git clone https://github.com/e-zou/slackbot-colors.git```
+```cd slackbot-colors```
+```npm install```
 
 ## What the main node modules are:
 express: framework that helps you set up a server
