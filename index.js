@@ -182,7 +182,7 @@ app.post('/hr', (req, res) => {
 
 })
 
-app.get('/hr/payroll', (req, res) => { 
+app.post('/hr/payroll', (req, res) => { 
     let body = {
         response_type: "in_channel",
         text: "Employees are paid semi-monthly for all the time worked during the last pay period.  If a new employee starts in the middle of a pay cycle, their first check will be prorated. Pay days are on the 15th and last day of the month, paid 2 weeks in arrears. Last day of the month is pay for the 1st-15th. The 15th is pay for the 16th-last day of the previous month. If a pay day falls on a weekend, then you can expect your check the Friday before.",
@@ -201,7 +201,7 @@ app.get('/hr/payroll', (req, res) => {
     res.send(body);
 })
 
-app.get('/401k', (req, res) => { 
+app.post('/401k', (req, res) => { 
     let body = {
         response_type: "in_channel",
         text: "X-Mode offers a 401k plan through Voya Financial. All full-time employees are eligible to enroll on the first of the month following their first 90 days of employment.  Currently, we do not offer a match to your contributions.",
