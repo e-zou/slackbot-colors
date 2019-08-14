@@ -165,23 +165,6 @@ app.get('/get', (req, res) => {
     res.send(body);
 })
 
-app.post('/hr', (req, res) => {
-    let query = req.body.text;
-    //let parsed_url = "https://damp-beach-73016.herokuapp.com/hr/" + query;
-    var parsed_url = url.format({
-        pathname: 'https://localhost:8080/hr/' + query,
-    });
-    console.log(parsed_url);
-
-    request(parsed_url, function(error, response, body) {
-        if (!error && response.statusCode == 200) {
-            let data = JSON.parse(body);
-            res.send(data);
-        }
-    });
-
-})
-
 app.post('/hr/payroll', (req, res) => { 
     let body = {
         response_type: "in_channel",
@@ -201,7 +184,7 @@ app.post('/hr/payroll', (req, res) => {
     res.send(body);
 })
 
-app.post('/401k', (req, res) => { 
+app.post('/hr/401k', (req, res) => { 
     let body = {
         response_type: "in_channel",
         text: "X-Mode offers a 401k plan through Voya Financial. All full-time employees are eligible to enroll on the first of the month following their first 90 days of employment.  Currently, we do not offer a match to your contributions.",
