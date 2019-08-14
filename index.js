@@ -184,7 +184,7 @@ app.post('/payroll', (req, res) => {
 app.post('/401k', (req, res) => { 
     let body = {
         response_type: "in_channel",
-        text: "X-Mode offers a 401k plan through Voya Financial.  All full-time employees are eligible to enroll on the first of the month following their first 90 days of employment.  Currently, we do not offer a match to your contributions.",
+        text: "X-Mode offers a 401k plan through Voya Financial. All full-time employees are eligible to enroll on the first of the month following their first 90 days of employment.  Currently, we do not offer a match to your contributions.",
         attachments: [
             {
                 color: "#edC560",
