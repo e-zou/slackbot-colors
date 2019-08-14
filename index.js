@@ -167,9 +167,10 @@ app.get('/get', (req, res) => {
 
 app.post('/hr/payroll', (req, res) => { 
     let body = {
-        response_type: "in_channel",
         text: "Employees are paid semi-monthly for all the time worked during the last pay period.  If a new employee starts in the middle of a pay cycle, their first check will be prorated. Pay days are on the 15th and last day of the month, paid 2 weeks in arrears. Last day of the month is pay for the 1st-15th. The 15th is pay for the 16th-last day of the previous month. If a pay day falls on a weekend, then you can expect your check the Friday before.",
-        
+        response_type: "ephemeral",
+        replace_original: true,
+        delete_original: true,
         attachments: [
             {
                 color: "#edC560",
@@ -191,7 +192,7 @@ app.post('/hr/401k', (req, res) => {
         attachments: [
             {
                 color: "#edC560",
-                text: "View our payroll calendar",
+                title: "401k Information"
                 title_link: "https://drive.google.com/open?id=1gOFeKxuXjNZl6rvh3Z-EqdqO0O0Edvhj",
                 footer: "X-Mode HR",
             }
