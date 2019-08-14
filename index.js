@@ -1,8 +1,13 @@
 const express = require('express')
 const axios = require('axios')
+const url = require('url')
+var request = require('request')
 const app = express() // creates express server
 const port = process.env.PORT || 8080 
 const cors = require("cors");
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/', (req, res) => { 
@@ -66,12 +71,6 @@ app.post('/post', (req, res) => {
         text: "X-mode's Branding Colors",
         attachments: [
             {
-                text: "A digital copy of our branding guideline book from 2019",
-                title: "Branding Guideline",
-                title_link: "https://drive.google.com/open?id=1oI_X2_11QBX-wnc82Tqm0zKKar4FnCNE",
-                footer: "X-Mode Design"
-            },
-            {
                 color: "#edC560",
                 text: "Light Yellow: #EDC560",
             },
@@ -106,6 +105,12 @@ app.post('/post', (req, res) => {
             {
                 color: "#F0F2F6",
                 text: "Off-White: #F0F2F6",
+            },
+            {
+                text: "A digital copy of our branding guideline book from 2019",
+                title: "Branding Guidelines",
+                title_link: "https://drive.google.com/open?id=1oI_X2_11QBX-wnc82Tqm0zKKar4FnCNE",
+                footer: "X-Mode Design"
             }
         ]
     }
@@ -160,9 +165,24 @@ app.get('/get', (req, res) => {
     res.send(body);
 })
 
+app.post('/hr', (req, res) => {
+    let query = req.body.text;
+    //let parsed_url = "https://damp-beach-73016.herokuapp.com/hr/" + query;
+    var parsed_url = url.format({
+        pathname: 'https://localhost:8080/hr/' + query,
+    });
+    console.log(parsed_url);
 
+    request(parsed_url, function(error, response, body) {
+        if (!error && response.statusCode == 200) {
+            let data = JSON.parse(body);
+            res.send(data);
+        }
+    });
 
-app.post('/payroll', (req, res) => { 
+})
+
+app.get('/hr/payroll', (req, res) => { 
     let body = {
         response_type: "in_channel",
         text: "Employees are paid semi-monthly for all the time worked during the last pay period.  If a new employee starts in the middle of a pay cycle, their first check will be prorated. Pay days are on the 15th and last day of the month, paid 2 weeks in arrears. Last day of the month is pay for the 1st-15th. The 15th is pay for the 16th-last day of the previous month. If a pay day falls on a weekend, then you can expect your check the Friday before.",
@@ -181,7 +201,7 @@ app.post('/payroll', (req, res) => {
     res.send(body);
 })
 
-app.post('/401k', (req, res) => { 
+app.get('/401k', (req, res) => { 
     let body = {
         response_type: "in_channel",
         text: "X-Mode offers a 401k plan through Voya Financial. All full-time employees are eligible to enroll on the first of the month following their first 90 days of employment.  Currently, we do not offer a match to your contributions.",
