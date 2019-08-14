@@ -1,7 +1,7 @@
 const express = require('express')
 const axios = require('axios')
 const app = express() // creates express server
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 8080 
 const cors = require("cors");
 app.use(cors());
 
@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 })
 
 
-app.get('/get', (req, res) => { 
+app.get('/get', (req, res) => {
     let body = {
         response_type: "in_channel",
         text: "X-mode's Branding Colors",
@@ -66,6 +66,12 @@ app.post('/post', (req, res) => {
         text: "X-mode's Branding Colors",
         attachments: [
             {
+                text: "A digital copy of our branding guideline book from 2019",
+                title: "Branding Guideline",
+                title_link: "https://drive.google.com/open?id=1oI_X2_11QBX-wnc82Tqm0zKKar4FnCNE",
+                footer: "X-Mode Design"
+            },
+            {
                 color: "#edC560",
                 text: "Light Yellow: #EDC560",
             },
@@ -100,6 +106,91 @@ app.post('/post', (req, res) => {
             {
                 color: "#F0F2F6",
                 text: "Off-White: #F0F2F6",
+            }
+        ]
+    }
+
+    res.send(body);
+})
+
+app.get('/get', (req, res) => {
+    let body = {
+        response_type: "in_channel",
+        text: "X-mode's Branding Colors",
+        attachments: [
+        {
+            color: "#EDC560",
+            pretext: "Light Yellow: #EDC560",
+        },
+        {
+            color: "#97C6BF",
+            pretext: "Leaf Green: #97C6BF",
+        },
+        {
+            color: "#F4C137",
+            pretext: "Dark Yellow: #F4C137",
+        },
+        {
+            color: "#FFB208",
+            pretext: "Light Orange: #FFB208",
+        },
+        {
+            color: "#E98035",
+            pretext: "Blood Orange: #E98035",
+        },
+        {
+            color: "#5F8D89",
+            pretext: "Dark Green: #5F8D89",
+        },
+        {
+            color: "#518991",
+            pretext: "Bluish Green: #518991",
+        },
+        {
+            color: "#264044",
+            pretext: "Super Dark Green: #264044",
+        },
+        {
+            color: "#F0F2F6",
+            pretext: "Off-White: #F0F2F6",
+        }
+        ]
+    }
+
+    res.send(body);
+})
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+
+app.post('/payroll', (req, res) => { 
+    let body = {
+        response_type: "in_channel",
+        text: "Employees are paid semi-monthly for all the time worked during the last pay period.  If a new employee starts in the middle of a pay cycle, their first check will be prorated. Pay days are on the 15th and last day of the month, paid 2 weeks in arrears. Last day of the month is pay for the 1st-15th. The 15th is pay for the 16th-last day of the previous month. If a pay day falls on a weekend, then you can expect your check the Friday before.",
+        
+        attachments: [
+            {
+                color: "#edC560",
+                text: "View our payroll calendar",
+                title: "Payroll Calendar",
+                title_link: "https://drive.google.com/open?id=1BsmOxdCi7taHBNFXKI5VhwYWnTClB01k",
+                footer: "X-Mode HR"
+            }
+        ]
+    }
+
+    res.send(body);
+})
+
+app.post('/401k', (req, res) => { 
+    let body = {
+        response_type: "in_channel",
+        text: "X-Mode offers a 401k plan through Voya Financial.  All full-time employees are eligible to enroll on the first of the month following their first 90 days of employment.  Currently, we do not offer a match to your contributions.",
+        attachments: [
+            {
+                color: "#edC560",
+                text: "View our payroll calendar",
+                title_link: "https://drive.google.com/open?id=1gOFeKxuXjNZl6rvh3Z-EqdqO0O0Edvhj",
+                footer: "X-Mode HR",
             }
         ]
     }
