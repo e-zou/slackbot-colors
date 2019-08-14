@@ -160,7 +160,7 @@ app.get('/get', (req, res) => {
     res.send(body);
 })
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+
 
 app.post('/payroll', (req, res) => { 
     let body = {
